@@ -17,4 +17,25 @@ html {
   box-sizing: border-box;
 }
 
+.container {
+
+  &-header {
+
+  }
+
+  &-page {
+
+  }
+}
+
+.error {
+
+  &-title {
+
+  }
+}
+
+@import 'pages/login';
 @import 'pages/projects';
+
+@import 'components/header';

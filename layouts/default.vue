@@ -1,10 +1,13 @@
 <template>
-  <div>
-    <Nuxt />
+  <div class="container">
+    <Header class="container-header" />
+    <Nuxt class="container-page" />
   </div>
 </template>
 <script>
+import Header from '../components/Header'
 export default {
+  components: { Header },
   computed: {
     authUserData () {
       return this.$store.getters['authorization/getAuthUserData']

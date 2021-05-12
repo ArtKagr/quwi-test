@@ -1,6 +1,6 @@
 <template>
   <div class="error">
-    <span class="error-message">Server error: 404</span>
+    <span class="error-title">404 Page not found</span>
   </div>
 </template>
 <style lang="scss">
