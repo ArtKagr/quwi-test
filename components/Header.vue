@@ -1,10 +1,20 @@
 <template>
   <div class="header">
-    <Logo class="header-logo" />
+    <div class="header-block">
+      <nuxt-link to="/">
+        <Logo class="header-block-logo" />
+      </nuxt-link>
+      <nuxt-link
+        v-if="$route.name === 'projects-id'"
+        class="header-block-button"
+        to="/projects"
+        @click.native="fetchProjects"
+        v-text="'Back'"
+      />
+    </div>
     <div class="header-pages">
       <nuxt-link class="header-pages-page" to="/projects" @click.native="fetchProjects" v-text="'Projects'" />
-      <span v-if="authToken" class="header-pages-page" @click="logout" v-text="'Logout'" />
-      <nuxt-link v-else class="header-pages-page" :to="`/${pageLink.link}`" v-text="pageLink.title" />
+      <span class="header-pages-page" @click="logout" v-text="'Logout'" />
     </div>
   </div>
 </template>
@@ -14,18 +24,6 @@ import Logo from './Logo'
 export default {
   name: 'Header',
   components: { Logo },
-  computed: {
-    authToken () {
-      return this.$store.getters['authorization/getAuthToken']
-    },
-    pageLink () {
-      if (this.$route.path === '/login') {
-        return { link: '', title: 'home' }
-      } else {
-        return { link: 'login', title: 'login' }
-      }
-    }
-  },
   methods: {
     logout () {
       this.$store.dispatch('authorization/logout')
