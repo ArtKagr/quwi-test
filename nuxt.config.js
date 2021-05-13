@@ -49,13 +49,12 @@ export default {
       local: {
         endpoints: {
           login: { url: 'auth/login', method: 'post', propertyName: 'token' },
-          logout: false,
+          logout: { url: 'auth/logout', method: 'post' },
           user: false
         }
       }
     }
   },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }

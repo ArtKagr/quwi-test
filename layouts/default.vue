@@ -32,8 +32,6 @@ export default {
           case 401:
             this.$router.push('/login')
             break
-          case 417:
-            break
         }
       },
       deep: true
